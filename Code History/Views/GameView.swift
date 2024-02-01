@@ -26,7 +26,7 @@ struct GameView: View {
             .environmentObject(viewModel)
         }
         .navigationDestination(isPresented: $viewModel.isOver) {
-            Text("Game Over!")
+            ScoreView(viewModel: ScoreViewModel(correctGuesses: viewModel.correctGuesses, incorrectGuesses: viewModel.incorrectGuesses))
         }
     }
 }
