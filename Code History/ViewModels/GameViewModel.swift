@@ -11,6 +11,14 @@ import SwiftUI
 class GameViewModel: ObservableObject {
     @Published private var game = Game()
     
+    var correctGuesses: Int {
+        game.guessCount.correct
+    }
+    
+    var incorrectGuesses: Int {
+        game.guessCount.incorrect
+    }
+    
     var currentQuestion: Question {
         game.currentQuestion
     }
