@@ -27,6 +27,9 @@ class GameViewModel: ObservableObject {
         }
     }
     
+    // Used to check in view
+    var isOver: Bool = false
+    
     var gameIsOver: Bool {
         game.isOver
     }
@@ -37,6 +40,9 @@ class GameViewModel: ObservableObject {
     
     func displayNextScreen() {
         game.updateGameStatus()
+        if game.isOver {
+            isOver = true
+        }
     }
     
     func color(forOptionIndex optionIndex: Int) -> Color {

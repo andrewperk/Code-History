@@ -21,10 +21,13 @@ struct GameView: View {
                     .padding()
                 QuestionView(question: viewModel.currentQuestion)
             }
+            .foregroundColor(.white)
+            .navigationBarHidden(true)
+            .environmentObject(viewModel)
         }
-        .foregroundColor(.white)
-        .navigationBarHidden(true)
-        .environmentObject(viewModel)
+        .navigationDestination(isPresented: $viewModel.isOver) {
+            Text("Game Over!")
+        }
     }
 }
 
